@@ -3,7 +3,6 @@ import "./App.css";
 import SocialCard from "./SocialCard";
 
 function App() {
-  const [allUsers, setAllUsers] = useState([]);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -16,14 +15,13 @@ function App() {
         console.log(error);
         userData = [];
       }
-      setAllUsers(userData);
       setUsers(userData);
     })();
   }, []);
  
   const filterCards = event => {
     const value = event.target.value.toLowerCase();
-    const filteredUsers = allUsers.filter(user => (`${user.first_name} ${user.last_name}`.toLowerCase().includes(value)));
+    const filteredUsers = users.filter(user => (`${user.first_name} ${user.last_name}`.toLowerCase().includes(value)));
     setUsers(filteredUsers);
   }
   
