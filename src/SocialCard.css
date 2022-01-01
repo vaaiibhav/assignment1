@@ -1,28 +1,39 @@
 .card {
     margin: 2rem 2rem 2rem 0;
-    padding: 1.5rem;
     background: #fff;
-    width: 250px;
     box-shadow: 0 0 28px 4px rgba(0,0,0,0.1);
-    transition: transform 0.6s;
+    transition: transform 0.3s ease-in-out;
     transform-style: preserve-3d;
-    cursor: pointer;
-}
-.front,.back{
-    backface-visibility: hidden;
-}
-.card:hover {
-    transform: rotateY(180deg);
+
     
 }
-.card:hover .front{
-display: none;    
+.card__body {
+    padding: 1.5rem;
+    width: 250px;
+    height: 100;
+} 
+.card__front,.card__back{
+  
+    display: block;    
+    backface-visibility: visible;
 }
-.card:hover .back{
+.card:hover {
+  /* background: #fff; */
+}
+.card:hover  {
+    transform: rotateY(180deg);    
+}
+
+.card:hover .card__front{
+    display: none;    
+}
+.card:hover .card__back{
+    transition-delay: 0.5s;
     display: block;    
 }
 
-.back{
+.card__back{
+    position: absolute;
     display: none;
     align-content: center;
     transform: rotateY(180deg);
